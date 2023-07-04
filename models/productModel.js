@@ -3,15 +3,15 @@ import mongoose from "mongoose";
 const productSchema = new mongoose.Schema(
   {
     name: {
-      type: String,
+      type: 'string',
       required: true,
     },
     slug: {
-      type: String,
+      type: 'string',
       required: true,
     },
     description: {
-      type: String,
+      type: 'string',
       required: true,
     },
     price: {
@@ -29,7 +29,7 @@ const productSchema = new mongoose.Schema(
     },
     photo: {
       data: Buffer,
-      contentType: String,
+      contentType: 'string',
     },
     shipping: {
       type: Boolean,
