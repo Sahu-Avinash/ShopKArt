@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
@@ -8,6 +8,8 @@ import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import "../styles/Homepage.css";
+import bannerimage1 from "../images/bannerImage1.webp"
+
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -108,14 +110,15 @@ const HomePage = () => {
   };
   return (
     <Layout title={"ALl Products - Best offers "}>
-      {/* banner image */}
-      {/* <img
-        src="/images/banner.png"
+     
+      <img
+        src={bannerimage1}
         className="banner-img"
         alt="bannerimage"
         width={"100%"}
-      /> */}
-      {/* banner image */}
+        height={"250px"}
+      />
+     
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
@@ -154,13 +157,15 @@ const HomePage = () => {
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <div className="card m-2" key={p._id}>
+                <NavLink to={`/product/${p.slug}`}>
                 <img
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
-                  height={"275px"}
-                  width={"75px"}
+                  height={"300px"}
+                  width={"100px"}
                 />
+                </NavLink>
                 <div className="card-body">
                   <div className="card-name-price">
                     <h5 className="card-title">{p.name}</h5>
@@ -172,17 +177,12 @@ const HomePage = () => {
                     </h5>
                   </div>
                   <p className="card-text ">
-                    {p.description.substring(0, 60)}...
+                    {p.description.substring(0, 15)}...
                   </p>
                   <div className="card-name-price">
+                   
                     <button
-                      className="btn btn-info ms-1"
-                      onClick={() => navigate(`/product/${p.slug}`)}
-                    >
-                      More Details
-                    </button>
-                    <button
-                      className="btn btn-dark ms-1"
+                      className="btn btn-dark ms-2"
                       onClick={() => {
                         setCart([...cart, p]);
 

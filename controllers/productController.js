@@ -6,7 +6,7 @@ import slugify from "slugify";
 import braintree from "braintree";
 import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
 var gateway = new braintree.BraintreeGateway({
   environment: braintree.Environment.Sandbox,
@@ -65,7 +65,7 @@ export const getProductController = async (req, res) => {
       .find({})
       .populate("category")
       .select("-photo")
-      .limit(12)
+      .limit(100)
       .sort({ createdAt: -1 });
     res.status(200).send({
       success: true,
@@ -331,26 +331,26 @@ export const braintreePaymentController = async (req, res) => {
     const { cart, nonce } = req.body;
     let total = 0;
     cart.map((i) => (total += i.price));
-    let newTransaction= gateway.transaction.sale({
-      amount:total,
-      paymentMethodNonce:nonce,
-      options:{
-        submitForSettlement:true
+    let newTransaction = gateway.transaction.sale(
+      {
+        amount: total,
+        paymentMethodNonce: nonce,
+        options: {
+          submitForSettlement: true,
+        },
+      },
+      function (error, result) {
+        if (result) {
+          const order = new orderModel({
+            product: cart,
+            payment: result,
+            buyer: req.user._id,
+          }).save();
+        } else {
+          res.status(500).send(error);
+        }
       }
-    },
-    function(error,result){
-      if(result){
-        const order= new orderModel({
-          product:cart,
-          payment: result,
-          buyer:req.user._id
-        }).save()
-      }else{
-        res.status(500).send(error)
-      }
-
-    }
-    )
+    );
   } catch (error) {
     console.log(error);
   }

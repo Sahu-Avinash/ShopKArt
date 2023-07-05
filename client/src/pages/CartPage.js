@@ -5,6 +5,7 @@ import { useAuth } from "../context/auth";
 import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import axios from "axios";
+import toast  from "react-hot-toast";
 
 const CartPage = () => {
   const [instance, setInstance] = useState("")
@@ -52,10 +53,24 @@ const CartPage = () => {
      getToken()
   },[auth?.token])
 
-  const handlePayment= ()=>
-  {
-
-  }
+  const handlePayment = async () => {
+    try {
+      setLoading(true);
+      const { nonce } = await instance.requestPaymentMethod();
+      const { data } = await axios.post("/api/v1/product/braintree/payment", {
+        nonce,
+        cart,
+      });
+      setLoading(false);
+      localStorage.removeItem("cart");
+      setCart([]);
+      navigate("/dashboard/user/orders");
+      toast.success("Payment Completed Successfully ");
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
   return (
     <Layout>
       <div className="container">
@@ -123,14 +138,22 @@ const CartPage = () => {
              )}
 
              <div className="mt-2">
-             <DropIn
+              {
+                !clientToken || !cart?.length? (" "):(
+                  <>
+ <DropIn
             options={{ authorization: clientToken,
             paypal:{
               flow:'valut'
             } }}
             onInstance={(instance) => setInstance(instance)}
           />
-          <button className="btn btn-primary" onClick={handlePayment}>Make Payment</button>
+           <button className="btn btn-primary" onClick={handlePayment}>Make Payment</button>
+                  </>
+                )
+              }
+            
+         
              </div>
             </div>
 
