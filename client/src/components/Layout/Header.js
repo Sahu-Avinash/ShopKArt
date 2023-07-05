@@ -6,6 +6,7 @@ import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import {Badge} from 'antd';
+import cartimage from "../../images/cartimage.png";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -130,7 +131,10 @@ const Header = () => {
               <li className="nav-item">
               <Badge count={cart?.length} showZero>
               <NavLink to="/cart" className="nav-link">
-                  cart
+                  <img src={cartimage} alt="cart" 
+                     height={"30px"}
+                     width={"30px"}
+                  />
                 </NavLink>
               </Badge>
 

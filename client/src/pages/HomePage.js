@@ -158,8 +158,8 @@ const HomePage = () => {
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
-                  height={"300px"}
-                  width={"100px"}
+                  height={"275px"}
+                  width={"75px"}
                 />
                 <div className="card-body">
                   <div className="card-name-price">
