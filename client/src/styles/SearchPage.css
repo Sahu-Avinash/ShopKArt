@@ -1,0 +1,43 @@
+ .card{
+    background-color: rgba(128, 128, 128, 0.097);
+    width: 18rem;
+}
+search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 16px;
+    background-color: rgb(155, 152, 152);
+    color: white;
+  }
+  
+  .search-button {
+    padding: 8px 12px;
+    background-color: #293c2a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #768076;
+  }
+
+  .navbar .form-control {
+    margin-left: 100px;
+    width: 700px; 
+    padding-right: 80px;
+  }
+  
+  .navbar .btn {
+    width: 80px; 
+  }

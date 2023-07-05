@@ -1,12 +1,13 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { HiOutlineShoppingBag } from "react-icons/hi";
+import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useAuth } from "../../context/auth";
 import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import {Badge} from 'antd';
 import cartimage from "../../images/cartimage.png";
+import "./Header.css"
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -37,10 +38,12 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand shopkart">
-              <HiOutlineShoppingBag /> ShopKart
+            <HiOutlineShoppingCart/> ShopKart
             </Link>
+            <div className="text-center"><SearchInput /></div>
+            
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <SearchInput />
+             
               <li className="nav-item">
                 <NavLink to="/" className="nav-link ">
                   Home

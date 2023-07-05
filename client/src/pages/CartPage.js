@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import axios from "axios";
 import toast  from "react-hot-toast";
+import "../styles/cartPage.css"
 
 const CartPage = () => {
   const [instance, setInstance] = useState("")
@@ -97,8 +98,7 @@ const CartPage = () => {
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
-                  width={"75px"}
-                  height= {"200px"}
+                  
                 />
                                 </div>
                                 <div className="col-md-8">

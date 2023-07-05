@@ -50,7 +50,7 @@ router.get('/product-count',productCountController);
 
 router.get('/product-list/:page', productListController);
 
-router.get('/search/:keywords',searchProductController);
+router.get('/search/:keyword',searchProductController);
 
 router.get('/related-product/:pid/:cid',relatedPrtoductController);
 

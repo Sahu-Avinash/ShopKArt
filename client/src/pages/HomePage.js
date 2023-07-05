@@ -154,6 +154,7 @@ const HomePage = () => {
         </div>
         <div className="col-md-9 ">
           <h1 className="text-center">All Products</h1>
+          
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <div className="card m-2" key={p._id}>
@@ -170,10 +171,10 @@ const HomePage = () => {
                   <div className="card-name-price">
                     <h5 className="card-title">{p.name}</h5>
                     <h5 className="card-title card-price">
-                      {/* {p.price.toLocaleString("en-US", {
+                      {p.price.toLocaleString("en", {
                         style: "currency",
-                        currency: "USD",
-                      })} */}
+                        currency: "INR",
+                      })}
                     </h5>
                   </div>
                   <p className="card-text ">
@@ -201,7 +202,7 @@ const HomePage = () => {
             ))}
           </div>
           <div className="m-2 p-3">
-            {products && products.length < total && (
+            {/* {products && products.length < total && (
               <button
                 className="btn loadmore"
                 onClick={(e) => {
@@ -218,7 +219,7 @@ const HomePage = () => {
                   </>
                 )}
               </button>
-            )}
+            )} */}
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React ,{useEffect,useState} from 'react';
 import Layout from '../components/Layout/Layout';
 import axios from 'axios';
+import "../styles/categoryProduct.css"
 
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -29,7 +30,7 @@ const CategoryProduct = () => {
     <Layout>
     <div>
       <div className="container mt-3">
-        <h1>hii</h1>
+     
         <h1 className='text-center'>{category?.name}</h1>
         <h1 className='text-center'>{products?.length}</h1>
         <div className="row">
