@@ -3,10 +3,12 @@ import Layout from '../components/Layout/Layout'
 import { useSearch } from '../context/search'
 import "../styles/SearchPage.css"
 import { Navigate, NavLink, useNavigate } from 'react-router-dom'
+import { useCart } from '../context/cart';
+import  toast  from 'react-hot-toast'
 
 const Search = () => {
     const[values,setValues] =useSearch()
-
+    const [cart, setCart] = useCart();
   return (
     <Layout className="container">
       <div className="text-center searchPage">
@@ -31,7 +33,18 @@ const Search = () => {
                   </p>
                   <div className="card-name-price">
         
-                    <button class="btn btn-secondary ms-1">
+                  <button
+                      className="btn btn-dark ms-2"
+                      onClick={() => {
+                        setCart([...cart, p]);
+
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, p])
+                        );
+                        toast.success("Item Added to cart");
+                      }}
+                    >
                       ADD TO CART
                     </button>
                     </div>

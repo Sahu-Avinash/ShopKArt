@@ -1,5 +1,5 @@
  .card{
-    background-color: rgba(128, 128, 128, 0.097);
+    background-color: rgba(26, 129, 184, 0.097);
     width: 18rem;
 }
 search-container {
@@ -9,17 +9,17 @@ search-container {
   
   .search-input {
     padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    /* border: 1px solid #ccc;
+    border-radius: 4px; */
     width: 200px;
     font-size: 16px;
-    background-color: rgb(155, 152, 152);
+    background-color: rgb(27, 112, 198);
     color: white;
   }
   
   .search-button {
     padding: 8px 12px;
-    background-color: #293c2a;
+    background-color: rgb(27, 112, 198);
     color: white;
     border: none;
     border-radius: 4px;
@@ -29,7 +29,7 @@ search-container {
   }
   
   .search-button:hover {
-    background-color: #768076;
+    background-color: #072e72;
   }
 
   .navbar .form-control {

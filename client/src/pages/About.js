@@ -1,31 +1,57 @@
+import { Icon } from '@iconify/react';
+import avinash from "../images/Avinash.jpg"
+import Layout from "../components/Layout/Layout";
 import React from "react";
-import Layout from "./../components/Layout/Layout";
-import about from "../images/about.jpeg"
+import "../styles/About.css";
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';;
 
-const About = ({title}) => {
+
+
+
+const About = () => {
+
+  const visitInstagram = () => {
+    window.location = "https://www.instagram.com/sahu_avinash_07/";
+  };
+
   return (
-    <Layout title={title}>
-      <div className="row contactus ">
-        <div className="col-md-6 ">
-          <img
-            src={about}
-            alt="contactus"
-            style={{ width: "100%" }}
-          />
-        </div>
-        <div className="col-md-4">
-          <p className="text-justify mt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            officiis obcaecati esse tempore unde ratione, eveniet mollitia,
-            perferendis eius temporibus dicta blanditiis doloremque explicabo
-            quasi sunt vero optio cum aperiam vel consectetur! Laborum enim
-            accusantium atque, excepturi sapiente amet! Tenetur ducimus aut
-            commodi illum quidem neque tempora nam.
-          </p>
+   <Layout>
+    <div className="aboutSection">
+      <div></div>
+      <div className="aboutSectionGradient"></div>
+      <div className="aboutSectionContainer">
+        <Typography component="h1">About Us</Typography>
+
+        <div>
+          <div>
+            <Avatar
+              style={{ width: "10vmax", height: "10vmax", margin: "2vmax 0" }}
+              src={avinash}
+              alt="Founder"
+            />
+            <Typography>Avinash Sahu(Founder)</Typography>
+            <Button onClick={visitInstagram} color="primary">
+              Visit Instagram
+            </Button>
+            <span>
+              This is a E-Commerce wesbite(ShopKart) made by @Avinash. 
+              
+            </span>
+          </div>
+        
+          <div className="aboutSectionContainer2">
+            <Typography component="h2">Our Brands</Typography>
+            <a href="https://www.instagram.com/sahu_avinash_07/" target="blank">
+            <Icon icon="mdi:instagram" className="instagramSvgIcon " />
+            </a>
+          </div>
         </div>
       </div>
+    </div>
     </Layout>
   );
 };
 
-export default About;
+export default About; 

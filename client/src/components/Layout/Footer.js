@@ -22,13 +22,13 @@ const Footer = () => {
         <p>Copyrights 2021 &copy; MeAvinash</p>
         <Link to="/about"> About </Link>
         <Link to="/contact"> Contact </Link>
-        <Link to="/policy"> Policy </Link>
+        
         
       </div>
 
       <div className="rightFooter">
         <h4>Follow Us</h4>
-        <a href="#">Instagram</a>
+        <a href="https://www.instagram.com/sahu_avinash_07/">Instagram</a>
         <a href="#">Facebook</a>
       </div>
     </footer>
