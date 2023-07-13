@@ -54,7 +54,7 @@ const ProductDetails = () => {
             <h2 className="text-center">Product Details</h2> 
             <h6><b>Name</b>: {product.name}</h6>
             <h6><b>Description</b> : {product.description}</h6>
-            <h6><b>Price</b> : {product.price}</h6>
+            <h6><b>Price</b> : ₹{product.price}</h6>
             <h6><b>Category</b> : {product.category?.name}</h6>
             <button className="btn btn-dark ms-1" onClick={() => {
                         setCart([...cart, product]);
@@ -88,7 +88,7 @@ const ProductDetails = () => {
                   <div className="card-name-price">
                     <h5 className="card-title">{p.name}</h5>
                     <h5 className="card-title card-price">
-                      
+                    ₹{p.price}
                     </h5>
                   </div>
                   <p className="card-text ">

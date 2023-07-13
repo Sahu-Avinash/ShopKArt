@@ -2,11 +2,12 @@ import React,{useState,useEffect} from "react";
 import Layout from "../components/Layout/Layout";
 import { useCart } from "../context/cart";
 import { useAuth } from "../context/auth";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import axios from "axios";
 import toast  from "react-hot-toast";
 import "../styles/cartPage.css"
+
 
 const CartPage = () => {
   const [instance, setInstance] = useState("")
@@ -74,13 +75,13 @@ const CartPage = () => {
   };
   return (
     <Layout>
-      <div className="container">
+      <div className="container ">
         <div className="row">
           <div className="col-md-12">
             <h1 className="text-center bg-light p-2 mb-1">
               {`Hello ${auth?.token && auth?.user?.name}`}
          
-            <p className="text-center">
+            <p className="text-center ">
               {cart?.length 
                 ? `You have ${cart.length} items in your cart ${auth?.token ? "": "please login to checkout"}`
                 : "your cart is empty"}
@@ -88,7 +89,7 @@ const CartPage = () => {
             </h1>
           </div>
         </div>
-        <div className="container">
+        <div className="container ">
         <div className="row">
             <div className="col-md-7">
                 
@@ -96,17 +97,22 @@ const CartPage = () => {
                         cart?.map(p=>(
                             <div className="row mb-2 p-3 card flex-row">
                                 <div className="col-md-4 ">
+                                <NavLink to={`/product/${p.slug}`}>
                                 <img
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                   
                 />
+                </NavLink>
                                 </div>
                                 <div className="col-md-8">
                                    <p>{p.name}</p>
                                    <p>{p.description.substring(0,30)}</p>
-                                   <p>Price:{p.price}</p>
+                                   <p>Price: {p.price.toLocaleString("en", {
+                        style: "currency",
+                        currency: "INR",
+                          })}</p>
                                    <button className="btn btn-danger" onClick={()=>removeCartItem(p._id)}>remove</button>
                                 </div>
                             </div>
@@ -119,7 +125,7 @@ const CartPage = () => {
              <h2>Cart summary</h2>
              <p>Total | Checkout | payment</p>
              <hr />
-             <h4>Total : {totalPrice()}</h4>
+             <h4>Total : ₹{totalPrice()}</h4>
              {auth?.user?.address?(
               <>
               <div className="mb-3"></div>

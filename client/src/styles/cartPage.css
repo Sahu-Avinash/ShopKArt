@@ -27,3 +27,11 @@
     text-align: center;
 
   }
+
+  .cartInput > button:hover {
+    background-color: rgba(0, 0, 0, 0.767) !important;
+  }
+
+  .cart-page {
+    background-image: url("../images/ShopKart.avif") !important;
+  }
