@@ -1,11 +1,14 @@
-
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useNavigate ,useLocation } from "react-router-dom";
-import "../../styles/register.css";
+// import "../../styles/register.css";
 import { useAuth } from "../../context/auth";
+import MailOutlineIcon from '@mui/icons-material/MailOutline'
+import LockOpenIcon from '@mui/icons-material/LockOpen'
+import './login.css'
+
 
 const Login = () => {
   
@@ -44,12 +47,14 @@ const Login = () => {
   };
   return (
     <Layout title={`Login in ShopKart`}>
-      <div className="form-container">
+      <div className="form-container ">
         <h1>Login page</h1>
         <form onSubmit={handleSubmit}>
           
           <div className="mb-3">
+          <MailOutlineIcon/>
             <input
+          
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -62,10 +67,7 @@ const Login = () => {
           </div>
 
           <div className="mb-3">
-            <label
-              htmlFor="exampleInputPassword1"
-              className="form-label"
-            ></label>
+            <LockOpenIcon/>
             <input
               type="password"
               value={password}

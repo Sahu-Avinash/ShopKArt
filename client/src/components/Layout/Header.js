@@ -63,7 +63,7 @@ const Header = () => {
                 <ul className="dropdown-menu">
                   <li>
                   <Link
-                        className="dropdown-item brand"
+                        className="dropdown-item "
                         to={`/categories`}
                       >
                         All Categories
@@ -113,7 +113,7 @@ const Header = () => {
                           to={`/dashboard/${
                             auth?.user?.role == 1 ? "admin" : "user"
                           }`}
-                          className="dropdown-item brand"
+                          className="dropdown-item "
                         >
                           DashBoard
                         </NavLink>
@@ -122,7 +122,7 @@ const Header = () => {
                         <NavLink
                           onClick={handleLogout}
                           to="/login"
-                          className="dropdown-item brand"
+                          className="dropdown-item"
                         >
                           Logout
                         </NavLink>

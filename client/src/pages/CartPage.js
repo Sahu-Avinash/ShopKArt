@@ -79,16 +79,18 @@ const CartPage = () => {
           <div className="col-md-12">
             <h1 className="text-center bg-light p-2 mb-1">
               {`Hello ${auth?.token && auth?.user?.name}`}
-            </h1>
-            <h4 className="text-center">
+         
+            <p className="text-center">
               {cart?.length 
                 ? `You have ${cart.length} items in your cart ${auth?.token ? "": "please login to checkout"}`
                 : "your cart is empty"}
-            </h4>
+            </p>
+            </h1>
           </div>
         </div>
+        <div className="container">
         <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-7">
                 
                     {
                         cart?.map(p=>(
@@ -112,7 +114,8 @@ const CartPage = () => {
                     }
                 
             </div>
-            <div className="col-md-4 text-center">
+           
+            <div className="col-md-5 cart-summary">
              <h2>Cart summary</h2>
              <p>Total | Checkout | payment</p>
              <hr />
@@ -156,7 +159,7 @@ const CartPage = () => {
          
              </div>
             </div>
-
+         </div>
         </div>
       </div>
     </Layout>

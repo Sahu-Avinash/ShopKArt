@@ -9,8 +9,7 @@ search-container {
   
   .search-input {
     padding: 8px;
-    /* border: 1px solid #ccc;
-    border-radius: 4px; */
+
     width: 200px;
     font-size: 16px;
     background-color: rgb(27, 112, 198);

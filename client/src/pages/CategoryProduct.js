@@ -2,10 +2,13 @@ import React ,{useEffect,useState} from 'react';
 import Layout from '../components/Layout/Layout';
 import axios from 'axios';
 import "../styles/categoryProduct.css"
+import { toast } from 'react-hot-toast';
+import { useCart } from '../context/cart';
 
-import { useNavigate, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 
 const CategoryProduct = () => {
+  const[cart,setCart]= useCart()
   const params = useParams()
   const navigate = useNavigate();
   const [products,setProducts] = useState([])
@@ -37,19 +40,21 @@ const CategoryProduct = () => {
         <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <div className="card m-2" key={p._id}>
+                <NavLink to={`/product/${p.slug}`}>
                 <img
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                 />
+                </NavLink>
                 <div className="card-body">
                   <div className="card-name-price">
                     <h5 className="card-title">{p.name}</h5>
                     <h5 className="card-title card-price">
-                      {/* {p.price.toLocaleString("en-US", {
+                      {p.price.toLocaleString("en", {
                         style: "currency",
-                        currency: "USD",
-                      })} */}
+                        currency: "INR",
+                      })}
                     </h5>
                   </div>
                   <p className="card-text ">
@@ -57,12 +62,6 @@ const CategoryProduct = () => {
                   </p>
                   <div className="card-name-price">
                     <button
-                      className="btn btn-info ms-1"
-                      onClick={() => navigate(`/product/${p.slug}`)}
-                    >
-                      More Details
-                    </button>
-                    {/* <button
                       className="btn btn-dark ms-1"
                       onClick={() => {
                         setCart([...cart, p]);
@@ -74,7 +73,7 @@ const CategoryProduct = () => {
                       }}
                     >
                       ADD TO CART
-                    </button> */}
+                    </button>
                   </div>
                 </div>
               </div>

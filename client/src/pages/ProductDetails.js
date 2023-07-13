@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { useCart } from "../context/cart";
 import toast  from "react-hot-toast";
 import "../styles/productDetails.css"
+import { NavLink } from "react-router-dom";
 
 const ProductDetails = () => {
     const params = useParams()
@@ -39,21 +40,22 @@ const ProductDetails = () => {
 
   return (
     <Layout>
-         <div className="row container mt-2">
+         <div className="row container mt-2  product-details">
           <div className="col-md-6">
           <img
                     src={`/api/v1/product/product-photo/${product._id}`}
                     className="card-img-top"
-                    alt={"hca"}
+                    alt={product.name}
                     
                   />
+                  
             </div>
-          <div className="col-md-6 ">
+          <div className="col-md-6 product-details-info">
             <h2 className="text-center">Product Details</h2> 
-            <h6>Name: {product.name}</h6>
-            <h6>Description : {product.description}</h6>
-            <h6>Price : {product.price}</h6>
-            <h6>Category : {product.category?.name}</h6>
+            <h6><b>Name</b>: {product.name}</h6>
+            <h6><b>Description</b> : {product.description}</h6>
+            <h6><b>Price</b> : {product.price}</h6>
+            <h6><b>Category</b> : {product.category?.name}</h6>
             <button className="btn btn-dark ms-1" onClick={() => {
                         setCart([...cart, product]);
 
@@ -68,18 +70,20 @@ const ProductDetails = () => {
             </div>
          </div>
          <hr/>
-         <div className="row container">
+         <div className="row container similar-products">
           <h5>Similar Products</h5>
           <div className="d-flex flex-wrap">
             {relatedProducts?.map((p) => (
               <div className="card m-2" key={p._id}>
+                 <NavLink to={`/product/${p.slug}`}>
+               
                 <img
+
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
-                  height={"200px"}
-                  width={"50px"}
                 />
+                </NavLink>
                 <div className="card-body">
                   <div className="card-name-price">
                     <h5 className="card-title">{p.name}</h5>

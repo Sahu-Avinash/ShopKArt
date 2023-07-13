@@ -1,5 +1,66 @@
-.banner-img {
-    margin-top: 50px;
+
+  .banner {
+    background-image: url("../images/cover.jfif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90.8vmin;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .banner > h1 {
+    margin: 5vmax;
+  
+    font: 600 2.5vmax "Roboto";
+  }
+  
+  .banner > p {
+    font: 300 1.4vmax "Lucida Sans";
+  }
+  
+  .banner > a > button {
+    margin-bottom: 5vmax;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 0;
+    padding: 1vmax;
+    transition: all 0.5s;
+    width: 9vmax;
+    font: 500 1vmax "Roboto";
+  }
+  .banner > a > button:hover {
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+  }
+  
+  .banner::after {
+    content: "";
+    width: 100vw;
+    height: 100vmin;
+    background-color: #fdfdfd;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    clip-path: polygon(100% 68%, 0 100%, 100% 100%);
+    max-width: 100%;
+  }
+
+  
+  .homeHeading {
+    text-align: center;
+    font-family: Roboto;
+    font-size: 1.4vmax;
+    border-bottom: 1px solid rgba(21, 21, 21, 0.5);
+    width: 20vmax;
+    padding: 1vmax;
+    margin: 5vmax auto;
+    color: rgb(0, 0, 0, 0.7);
   }
   
   .home-page h1 {
@@ -10,6 +71,7 @@
   .home-page {
     display: flex;
     flex-wrap: wrap;
+   
   }
   .home-page .card {
     background-color: rgba(128, 128, 128, 0.097);
@@ -22,7 +84,7 @@
   }
   
   .home-page .card-price {
-    color: green;
+    color: rgb(3, 85, 3);
     font-weight: bold;
   }
   .home-page button {
@@ -35,7 +97,7 @@
   }
   
   .home-page .card-text {
-    color: rgb(90, 89, 89);
+    color: rgb(244, 246, 246);
   }
   
   .home-page .card img:hover {
@@ -45,9 +107,7 @@
   .home-page .card-img-top {
     height: 300px !important;
   }
-  /* ==================
-  filters
-  ============== */
+ 
   .filters h4 {
     margin-top: 100px;
     color: gray !important;

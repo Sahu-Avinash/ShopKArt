@@ -9,6 +9,7 @@ import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import "../styles/Homepage.css";
 import bannerimage1 from "../images/bannerImage1.webp"
+import { CgMouse } from "react-icons/cg";
 
 
 const HomePage = () => {
@@ -109,15 +110,19 @@ const HomePage = () => {
     }
   };
   return (
-    <Layout title={"ALl Products - Best offers "}>
+    <Layout title={"ALl Products "}>
      
-      <img
-        src={bannerimage1}
-        className="banner-img"
-        alt="bannerimage"
-        width={"100%"}
-        height={"250px"}
-      />
+     <div className="banner">
+            <p>Welcome to ShopKart</p>
+            <h1>FIND AMAZING PRODUCTS BELOW</h1>
+
+            <a href="#scroll">
+              <button>
+                Scroll <CgMouse />
+              </button>
+            </a>
+          </div>
+       
      
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
@@ -153,9 +158,9 @@ const HomePage = () => {
           </div>
         </div>
         <div className="col-md-9 ">
-          <h1 className="text-center">All Products</h1>
+          <h1 className="text-center">Featured Products</h1>
           
-          <div className="d-flex flex-wrap">
+          <div className="d-flex flex-wrap " id="scroll">
             {products?.map((p) => (
               <div className="card m-2" key={p._id}>
                 <NavLink to={`/product/${p.slug}`}>

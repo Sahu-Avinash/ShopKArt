@@ -71,3 +71,7 @@ footer {
   .rightFooter > a:hover {
     color: #eb4034;
   }
+
+  .midFooter > Link:hover{
+    color: #65eb34 !important;
+  }

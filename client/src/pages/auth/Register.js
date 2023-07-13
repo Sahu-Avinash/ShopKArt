@@ -4,7 +4,12 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 import "../../styles/register.css"
-
+import FaceIcon from '@mui/icons-material/Face'
+import MailOutlineIcon from '@mui/icons-material/MailOutline'
+import LockOpenIcon from '@mui/icons-material/LockOpen'
+import PhoneIcon from '@mui/icons-material/Phone'
+import AddressIcon from '@mui/icons-material/Home'
+import SchoolIcon from '@mui/icons-material/School'
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,6 +18,7 @@ const Register = () => {
   const [address, setAddress] = useState("");
   const [answer, setAnswer] = useState("");
   const navigate= useNavigate();
+
 
 
   const handleSubmit = async (e) => {
@@ -43,7 +49,7 @@ const Register = () => {
         <h1>Register Page</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-           
+           <FaceIcon/>
             <input
               type="text"
               value={name}
@@ -56,7 +62,7 @@ const Register = () => {
             <div id="emailHelp" className="form-text"></div>
           </div>
           <div className="mb-3">
-            
+          <MailOutlineIcon/>
             <input
               type="email"
               value={email}
@@ -73,6 +79,7 @@ const Register = () => {
             <label htmlFor="exampleInputPassword1" className="form-label">
               
             </label>
+            <LockOpenIcon/>
             <input
               type="password"
               value={password}
@@ -84,6 +91,7 @@ const Register = () => {
             />
           </div>
           <div className="mb-3">
+            <PhoneIcon/>
             <input
               type="text"
               value={phone}
@@ -96,7 +104,7 @@ const Register = () => {
             <div id="emailHelp" className="form-text"></div>
           </div>
           <div className="mb-3">
-          
+          <AddressIcon/>
             <input
               type="text"
               value={address}
@@ -109,7 +117,7 @@ const Register = () => {
             <div id="emailHelp" className="form-text"></div>
           </div>
           <div className="mb-3">
-          
+          <SchoolIcon/>
             <input
               type="text"
               value={answer}
