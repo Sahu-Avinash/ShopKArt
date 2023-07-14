@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.73bf6f8b.css",
+    "main.js": "/static/js/main.b7f16edc.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/cover.jfif": "/static/media/cover.e2edeab17643ab2951c0.jfif",
+    "static/media/bannerImage1.webp": "/static/media/bannerImage1.68ee27166d8bcc235d92.webp",
+    "static/media/Avinash.jpg": "/static/media/Avinash.2d07916fff2390f784bd.jpg",
+    "static/media/ShopKart.avif": "/static/media/ShopKart.148d2b779dcbf82efa06.avif",
+    "static/media/playstore.png": "/static/media/playstore.82b4831979e0ce7c733e.png",
+    "static/media/Appstore.png": "/static/media/Appstore.d0c5839937e3c36285f6.png",
+    "static/media/loginpage.avif": "/static/media/loginpage.3e2762f83f2d480dbd33.avif",
+    "index.html": "/index.html",
+    "main.73bf6f8b.css.map": "/static/css/main.73bf6f8b.css.map",
+    "main.b7f16edc.js.map": "/static/js/main.b7f16edc.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73bf6f8b.css",
+    "static/js/main.b7f16edc.js"
+  ]
+}
